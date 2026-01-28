@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Happy Birthday ❤️</title>
+
+<style>
+  body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #ffdee9, #b5fffc);
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .card {
+    background: white;
+    padding: 40px;
+    border-radius: 25px;
+    width: 90%;
+    max-width: 430px;
+    text-align: center;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+    animation: fadeIn 1.5s ease;
+    position: relative;
+    z-index: 2;
+  }
+
+  h1 {
+    color: #ff4d6d;
+    margin-bottom: 5px;
+  }
+
+  h2 {
+    font-size: 18px;
+    color: #666;
+    margin-bottom: 20px;
+  }
+
+  p {
+    color: #444;
+    line-height: 1.6;
+    font-size: 16px;
+  }
+
+  .heart {
+    font-size: 45px;
+    animation: beat 1s infinite;
+    margin: 15px 0;
+  }
+
+  button {
+    margin-top: 20px;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 30px;
+    background: #ff4d6d;
+    color: white;
+    font-size: 15px;
+    cursor: pointer;
+  }
+
+  button:hover {
+    background: #e63950;
+  }
+
+  .footer {
+    margin-top: 20px;
+    font-size: 14px;
+    color: #888;
+  }
+
+  @keyframes beat {
+    0%,100% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* Confetti */
+  .confetti {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: red;
+    animation: fall 4s linear infinite;
+  }
+
+  @keyframes fall {
+    0% { transform: translateY(-100px) rotate(0deg); }
+    100% { transform: translateY(110vh) rotate(360deg); }
+  }
+</style>
+</head>
+
+<body>
+
+<audio id="music" loop>
+  <source src="https://cdn.pixabay.com/audio/2022/03/15/audio_4c9dc33b47.mp3" type="audio/mpeg">
+</audio>
+
+<div class="card">
+  <h1>Happy Birthday, Sayang 🎉</h1>
+  <h2>Another year of you being amazing ✨</h2>
+
+  <div class="heart">❤️</div>
+
+  <p>
+    Happy birthday yaa 🤍  
+    Semoga hari ini penuh senyum, tawa, dan hal-hal kecil yang bikin kamu bahagia.
+  </p>
+
+  <p>
+    Thank you for being you,  
+    and for making my days better just by existing.
+  </p>
+
+  <p>
+    Aku bangga sama kamu.  
+    Always.
+  </p>
+
+  <button onclick="playMusic()">Play the song 🎵</button>
+
+  <div class="footer">
+    — with love, from me 💌
+  </div>
+</div>
+
+<script>
+  function playMusic() {
+    document.getElementById("music").play();
+    createConfetti();
+  }
+
+  function createConfetti() {
+    for (let i = 0; i < 40; i++) {
+      let confetti = document.createElement("div");
+      confetti.className = "confetti";
+      confetti.style.left = Math.random() * 100 + "vw";
+      confetti.style.background = 
+        ["#ff4d6d", "#ffd166", "#06d6a0", "#118ab2"][Math.floor(Math.random()*4)];
+      confetti.style.animationDuration = (Math.random() * 3 + 2) + "s";
+      document.body.appendChild(confetti);
+
+      setTimeout(() => confetti.remove(), 5000);
+    }
+  }
+</script>
+
+</body>
+</html>
